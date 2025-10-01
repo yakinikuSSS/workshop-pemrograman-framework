@@ -7,7 +7,7 @@
 </head>
 <body>
     <h2>Edit Data Pegawai</h2>
-    <form action="{{ route('employees.update', $employee->id) }}" method="POST">
+    <form action="{{ route('employees.create', $employee->id) }}" method="POST">
         @csrf
         @method('PUT')
         <table>
@@ -46,8 +46,16 @@
             </tr>
             <tr>
                 <td colspan="2">
-                    <button type="submit">Update</button>
+                    <label for="status">Status:</label><br>
+                    <select name="status" id="status" required>
+                        <option value="Aktif">Aktif</option>
+                        <option value="Nonaktif">Nonaktif</option>
+                    </select>                
                 </td>
+            </tr>
+            <tr>
+                <button type="submit">Simpan</button>
+                <a href="{{ route('employees.index') }}">Batal</a>
             </tr>
         </table>
     </form>

@@ -3,64 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tambah Pegawai</title>
+    <title>Document</title>
 </head>
 <body>
-    <div class="container mt-5">
-        <h1 class="mb-4">Form Pegawai</h1>
-
+    <h2>Tambah Pegawai</h2>
         <form action="{{ route('employees.store') }}" method="POST">
-            @csrf
-
-            <div>
-                <label for="nama_lengkap">Nama Lengkap:</label><br>
-                <input type="text" name="nama_lengkap" id="nama_lengkap" required>
-            </div>
-            <br>
-
-            <div>
-                <label for="email">Email:</label><br>
-                <input type="email" name="email" id="email" required>
-            </div>
-            <br>
-
-            <div>
-                <label for="nomor_telepon">Nomor Telepon:</label><br>
-                <input type="text" name="nomor_telepon" id="nomor_telepon" required>
-            </div>
-            <br>
-
-            <div>
-                <label for="tanggal_lahir">Tanggal Lahir:</label><br>
-                <input type="date" name="tanggal_lahir" id="tanggal_lahir" required>
-            </div>
-            <br>
-
-
-            <div>
-                <label for="alamat">Alamat:</label><br>
-                <textarea name="alamat" id="alamat" rows="3" required></textarea>
-            </div>
-            <br>
-
-            <div>
-                <label for="tanggal_masuk">Tanggal Masuk:</label><br>
-                <input type="date" name="tanggal_masuk" id="tanggal_masuk" required>
-            </div>
-            <br>
-
-            <div>
-                <label for="status">Status:</label><br>
-                <select name="status" id="status" required>
-                    <option value="Aktif">Aktif</option>
-                    <option value="Nonaktif">Nonaktif</option>
-                </select>
-            </div>
-            <br>
-
-            <button type="submit">Simpan</button>
-            <a href="{{ route('employees.index') }}">Batal</a>
-        </form>
-    </div>
+        @csrf
+        <table>
+            <tr>
+                <td>Nama Lengkap</td>
+                <td><input type="text" name="nama_lengkap"></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="email" name="email"></td>
+            </tr>
+            <tr>
+                <td>Nomor Telepon</td>
+                <td><input type="text" name="nomor_telepon"></td>
+            </tr>
+            <tr>
+                <td>Tanggal Lahir</td>
+                <td><input type="date" name="tanggal_lahir"></td>
+            </tr>
+            <tr>
+                <td>Alamat</td>
+                <td><input type="text" name="alamat"></td>
+            </tr>
+            <tr>
+                <td>Tanggal Masuk</td>
+                <td><input type="date" name="tanggal_masuk"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <label for="status">Status:</label><br>
+                    <select name="status" id="status" required>
+                        <option value="Aktif">Aktif</option>
+                        <option value="Nonaktif">Nonaktif</option>
+                    </select>                
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="submit">Simpan</button>
+                    <button type="button" onclick="window.location.href ='{{ route('employees.index') }}'">Batal</button>
+                </td>
+            </tr>
+        </table>
+    </form>
 </body>
 </html>
