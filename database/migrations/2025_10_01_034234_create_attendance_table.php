@@ -10,7 +10,7 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('attendance', function (Blueprint $table) {
+        Schema::create('attendances', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('karyawan_id');
             $table->date('tanggal');
@@ -18,7 +18,6 @@ return new class extends Migration {
             $table->time('waktu_keluar')->nullable();
             $table->enum('status_absensi', ['hadir', 'izin', 'sakit', 'alpha']);
             $table->timestamps();
-            // Foreign key constraint
             $table->foreign('karyawan_id')
                 ->references('id')
                 ->on('employees')
